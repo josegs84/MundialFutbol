@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="equipo.cs" />
+    <Compile Include="gol.cs" />
+    <Compile Include="jugador.cs" />
+    <Compile Include="jugar.cs" />
+    <Compile Include="mundial.cs" />
+    <Compile Include="partido.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
