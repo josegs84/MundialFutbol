@@ -53,5 +53,42 @@ namespace Mundial_Futbol
         {
 
         }
+
+
+        public string NombreEquipo
+        {
+            get { return nombreEquipo; }
+            set
+            {
+                if (value.Length > 0 & value.Length <= 50)
+                    nombreEquipo = value;
+            }
+        }
+
+        public string Pais
+        {
+            get { return pais; }
+            set
+            {
+                if (value.Length <= 30)
+                    pais = value;
+            }
+        }
+
+        public string Seleccionador
+        {
+            get { return seleccionador; }
+            set
+            {
+                if (value.Length <= 50)
+                    seleccionador = value;
+            }
+        }
+
+        public override string ToString()
+        {
+            return NombreEquipo + "#" + Pais + "#" + Seleccionador;
+        }
+
     }
 }

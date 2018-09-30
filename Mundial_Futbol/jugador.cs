@@ -14,11 +14,11 @@ namespace Mundial_Futbol
         /// <summary>
         /// Atributos de Jugador
         /// </summary>
-        private string nombre { get; set; }
-        private string direccion { get; set; }
-        private string puesto { get; set; }
-        private string fechaNacimiento { get; set; }
-        private string equipo { get; set; }
+        private string nombre;
+        private string direccion;
+        private string puesto;
+        private string equipo;
+        private DateTime fechaNacimiento;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -34,12 +34,12 @@ namespace Mundial_Futbol
         /// <param name="puesto"></param>
         /// <param name="fechaNacimiento"></param>
         /// <param name="equipo"></param>
-        public jugador(string nombre, string direccion, string puesto, string fechaNacimiento, string equipo)
+        public jugador(string nombre, string direccion, string puesto, DateTime fechaNacimiento, string equipo)
         {
             this.nombre = nombre;
             this.direccion = direccion;
             this.puesto = puesto;
-            this.fechaNacimiento = fechaNacimiento;
+            this.FechaNacimiento = fechaNacimiento;
             this.equipo = equipo;
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Mundial_Futbol
             this.nombre = deportista.nombre;
             this.direccion = deportista.direccion;
             this.puesto = deportista.puesto;
-            this.fechaNacimiento = deportista.fechaNacimiento;
+            this.FechaNacimiento = deportista.FechaNacimiento;
             this.equipo = deportista.equipo;
         }
         /// <summary>
@@ -60,6 +60,52 @@ namespace Mundial_Futbol
         ~jugador()
         {
 
+        }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set {
+                if(value.Length > 0 & value.Length <= 60)
+                    nombre = value;
+            }
+        }
+
+        public string Direccion
+        {
+            get { return direccion; }
+            set
+            {
+                if (value.Length <= 150)
+                    direccion = value;
+            }
+        }
+
+        public string Puesto
+        {
+            get { return puesto; }
+            set
+            {
+                if (value.Length <= 2)
+                    puesto = value;
+            }
+        }
+
+        public string Equipo
+        {
+            get { return equipo; }
+            set
+            {
+                if (value.Length > 0 & value.Length <= 50)
+                    equipo = value;
+            }
+        }
+
+        public DateTime FechaNacimiento { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre + "#" + Direccion + "#" + Puesto + "#" + Equipo + "#" + FechaNacimiento;
         }
     }
 }

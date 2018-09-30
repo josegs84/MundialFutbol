@@ -14,14 +14,14 @@ namespace Mundial_Futbol
         /// <summary>
         /// Atributos
         /// </summary>
-        private string equipoLocal { get; set; }
-        private string equipoVisitante { get; set; }
-        private string fecha { get; set; }
-        private string hora { get; set; }
-        private string sede { get; set; }
-        private int resultadoLocal { get; set; }
-        private int resultadoVisitante { get; set; }
-        private int asistenciaEstadio { get; set; }
+        private string equipoLocal;
+        private string equipoVisitante;
+        private DateTime fecha;
+        private string hora;
+        private string sede;
+        private int? resultadoLocal;
+        private int? resultadoVisitante;
+        private int? asistenciaEstadio;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -40,7 +40,7 @@ namespace Mundial_Futbol
         /// <param name="resultadoLocal"></param>
         /// <param name="resultadoVisitante"></param>
         /// <param name="asistenciaEstadio"></param>
-        public partido(string equipoLocal, string equipoVisitante, string fecha, string hora, string sede, int resultadoLocal, int resultadoVisitante, int asistenciaEstadio)
+        public partido(string equipoLocal, string equipoVisitante, DateTime fecha, string hora, string sede, int? resultadoLocal, int? resultadoVisitante, int? asistenciaEstadio)
         {
             this.equipoLocal = equipoLocal;
             this.equipoVisitante = equipoVisitante;
@@ -79,5 +79,70 @@ namespace Mundial_Futbol
         {
 
         }
+
+
+        public string EquipoLocal
+        {
+            get { return equipoLocal; }
+            set
+            {
+                if (value.Length < 0 & value.Length >= 50)
+                    equipoLocal = value;
+            }
+        }
+        public string EquipoVisitante
+        {
+            get { return equipoVisitante; }
+            set
+            {
+                if (value.Length < 0 & value.Length >= 50)
+                    equipoVisitante = value;
+            }
+        }
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+        public string Hora
+        {
+            get { return hora; }
+            set
+            {
+                if (value.Length >= 8)
+                    hora = value;
+            }
+        }
+        public string Sede
+        {
+            get { return sede; }
+            set
+            {
+                if (value.Length >= 100)
+                    sede = value;
+            }
+        }
+
+        public int? ResultadoLocal
+        {
+            get { return resultadoLocal; }
+            set { resultadoLocal = value; }
+        }
+        public int? ResultadoVisitante
+        {
+            get { return resultadoVisitante; }
+            set { resultadoVisitante = value; }
+        }
+        public int? AsistenciaEstadio
+        {
+            get { return asistenciaEstadio; }
+            set { asistenciaEstadio = value; }
+        }
+
+        public override string ToString()
+        {
+            return EquipoLocal + "#" + EquipoVisitante + "#" + Fecha + "#" + Hora + "#" + Sede + "#" + ResultadoLocal + "#" + ResultadoVisitante + "#" + AsistenciaEstadio;
+        }
+
     }
 }

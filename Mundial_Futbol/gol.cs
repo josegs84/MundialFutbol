@@ -14,11 +14,11 @@ namespace Mundial_Futbol
         /// <summary>
         /// Atributos
         /// </summary>
-        private int minuto { get; set; }
-        private string jugadorGol { get; set; }
-        private string equipoLocalGol { get; set; }
-        private string equipoVisitanteGol { get; set; }
-        private string fechaGol { get; set; }
+        private int minuto;
+        private string jugadorGol;
+        private string equipoLocalGol;
+        private string equipoVisitanteGol;
+        private DateTime fechaGol;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -34,7 +34,7 @@ namespace Mundial_Futbol
         /// <param name="equipoLocalGol"></param>
         /// <param name="equipoVisitanteGol"></param>
         /// <param name="fechaGol"></param>
-        public gol(int minuto, string jugadorGol, string equipoLocalGol, string equipoVisitanteGol, string fechaGol)
+        public gol(int minuto, string jugadorGol, string equipoLocalGol, string equipoVisitanteGol, DateTime fechaGol)
         {
             this.minuto = minuto;
             this.jugadorGol = jugadorGol;
@@ -62,13 +62,63 @@ namespace Mundial_Futbol
         {
 
         }
+
+        
+        public int Minuto {
+            get { return minuto; }
+            set
+            {
+                if (value > 0)
+                    minuto = value;
+            }
+        }        
+
+        public string JugadorGol
+        {
+            get { return JugadorGol; }
+            set
+            {
+                if (value.Length < 0 & value.Length <= 60)
+                    jugadorGol = value;
+            }
+        }
+
+        public string EquipoLocalGol
+        {
+            get { return equipoLocalGol; }
+            set
+            {
+                if (value.Length < 0 & value.Length <= 50)
+                    equipoLocalGol = value;
+            }
+        }
+
+        public string EquipoVisitanteGol
+        {
+            get { return equipoVisitanteGol; }
+            set
+            {
+                if (value.Length < 0 & value.Length <= 50)
+                    equipoVisitanteGol = value;
+            }
+        }
+
+        public DateTime FechaGol
+        {
+            get { return fechaGol; }
+            set
+            {
+                fechaGol = value;
+            }
+        }
+
         /// <summary>
         /// Método ToString()
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return minuto + "#" + jugadorGol + "#" + equipoLocalGol + "#" + equipoVisitanteGol + "#" + fechaGol;
+            return Minuto + "#" + JugadorGol + "#" + EquipoLocalGol + "#" + EquipoVisitanteGol + "#" + FechaGol;
         }
     }
 }

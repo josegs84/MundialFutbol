@@ -11,13 +11,13 @@ namespace Mundial_Futbol
     /// </author>
     class jugar
     {
-        private string nombreJugador { get; set; }
-        private string equipoLocal { get; set; }
-        private string equipoVisitante { get; set; }
-        private string fechaPartido { get; set; }
-        private int minJugar { get; set; }
-        private string puestoJugador { get; set; }
-        private int dorsal { get; set; }
+        private string nombreJugador;
+        private string equipoLocal;
+        private string equipoVisitante;
+        private DateTime fechaPartido;
+        private int? minJugar;
+        private string puestoJugador;
+        private int? dorsal;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -35,7 +35,7 @@ namespace Mundial_Futbol
         /// <param name="minJugar"></param>
         /// <param name="puestoJugador"></param>
         /// <param name="dorsal"></param>
-        public jugar(string nombreJugador, string equipoLocal, string equipoVisitante, string fechaPartido, int minJugar, string puestoJugador, int dorsal)
+        public jugar(string nombreJugador, string equipoLocal, string equipoVisitante, DateTime fechaPartido, int minJugar, string puestoJugador, int dorsal)
         {
             this.nombreJugador = nombreJugador;
             this.equipoLocal = equipoLocal;
@@ -65,6 +65,76 @@ namespace Mundial_Futbol
         ~jugar()
         {
 
+        }
+
+
+        public string NombreJugador
+        {
+            get { return nombreJugador; }
+            set {
+                if (value.Length > 0 & value.Length <= 60)
+                    nombreJugador = value;
+            }
+        }
+
+
+        public string EquipoLocal
+        {
+            get { return equipoLocal; }
+            set {
+                if (value.Length > 0 & value.Length <= 50)
+                    equipoLocal = value;
+            }
+        }
+
+        public string EquipoVisitante
+        {
+            get { return equipoVisitante; }
+            set
+            {
+                if (value.Length > 0 & value.Length <= 50)
+                    equipoVisitante = value;
+            }
+        }
+
+        public DateTime FechaPartido
+        {
+            get { return fechaPartido; }
+            set { fechaPartido = value; }
+        }
+
+        public int? MinJugar
+        {
+            get { return minJugar; }
+            set
+            {
+                if (value > 0)
+                    minJugar = value;
+            }
+        }
+
+        public string PuestoJugador
+        {
+            get { return puestoJugador; }
+            set
+            {
+                if (value.Length <= 2)
+                    puestoJugador = value;
+            }
+        }
+        public int? Dorsal
+        {
+            get { return dorsal; }
+            set
+            {
+                if (value > 0)
+                    dorsal = value;
+            }
+        }
+
+        public override string ToString()
+        {
+            return NombreJugador + "#" + EquipoLocal + "#" + EquipoVisitante + "#" + FechaPartido + "#" + MinJugar + "#" + PuestoJugador + "#" + Dorsal;
         }
     }
 }
