@@ -9,25 +9,32 @@ namespace Mundial_Futbol
     /// <author>
     /// José González Silva
     /// </author>
-    class partido : IComparable
+    class Partido : IComparable
     {
         /// <summary>
         /// Atributos
         /// </summary>
-        private string equipoLocal;
-        private string equipoVisitante;
-        private DateTime fecha;
-        private string hora;
-        private string sede;
-        private int? resultadoLocal;
-        private int? resultadoVisitante;
-        private int? asistenciaEstadio;
+        private string _equipoLocal;
+        private string _equipoVisitante;
+        private DateTime _fecha;
+        private string _hora;
+        private string _sede;
+        private int? _resultadoLocal;
+        private int? _resultadoVisitante;
+        private int? _asistenciaEstadio;
         /// <summary>
         /// Constructor
         /// </summary>
-        public partido()
+        public Partido()
         {
-
+            this.EquipoLocal = "";
+            this.EquipoVisitante = "";
+            this.Fecha = new DateTime();
+            this.Hora = "";
+            this.Sede = "";
+            this.ResultadoLocal = 0;
+            this.ResultadoVisitante = 0;
+            this.AsistenciaEstadio = 0;
         }
         /// <summary>
         /// Constructor con parámetros
@@ -40,103 +47,133 @@ namespace Mundial_Futbol
         /// <param name="resultadoLocal"></param>
         /// <param name="resultadoVisitante"></param>
         /// <param name="asistenciaEstadio"></param>
-        public partido(string equipoLocal, string equipoVisitante, DateTime fecha, string hora, string sede, int? resultadoLocal, int? resultadoVisitante, int? asistenciaEstadio)
+        public Partido(string equipoLocal, string equipoVisitante, DateTime fecha, string hora, string sede, int? resultadoLocal, int? resultadoVisitante, int? asistenciaEstadio)
         {
-            this.equipoLocal = equipoLocal;
-            this.equipoVisitante = equipoVisitante;
-            this.fecha = fecha;
-            this.hora = hora;
-            this.sede = sede;
-            this.resultadoLocal = resultadoLocal;
-            this.resultadoVisitante = resultadoVisitante;
-            this.asistenciaEstadio = asistenciaEstadio;
+            this.EquipoLocal = equipoLocal;
+            this.EquipoVisitante = equipoVisitante;
+            this.Fecha = fecha;
+            this.Hora = hora;
+            this.Sede = sede;
+            this.ResultadoLocal = resultadoLocal;
+            this.ResultadoVisitante = resultadoVisitante;
+            this.AsistenciaEstadio = asistenciaEstadio;
         }
         /// <summary>
         /// Constructor de copia
         /// </summary>
         /// <param name="encuentro"></param>
-        public partido(partido encuentro)
+        public Partido(Partido encuentro)
         {
-            this.equipoLocal = encuentro.equipoLocal;
-            this.equipoVisitante = encuentro.equipoVisitante;
-            this.fecha = encuentro.fecha;
-            this.hora = encuentro.hora;
-            this.sede = encuentro.sede;
-            this.resultadoLocal = encuentro.resultadoLocal;
-            this.resultadoVisitante = encuentro.resultadoVisitante;
-            this.asistenciaEstadio = encuentro.asistenciaEstadio;
+            this.EquipoLocal = encuentro.EquipoLocal;
+            this.EquipoVisitante = encuentro.EquipoVisitante;
+            this.Fecha = encuentro.Fecha;
+            this.Hora = encuentro.Hora;
+            this.Sede = encuentro.Sede;
+            this.ResultadoLocal = encuentro.ResultadoLocal;
+            this.ResultadoVisitante = encuentro.ResultadoVisitante;
+            this.AsistenciaEstadio = encuentro.AsistenciaEstadio;
         }
 
         public int CompareTo(object obj)
         {
-            return fecha.CompareTo(obj);
+            int salida;
+            try
+            {
+                Partido par = (Partido)obj;
+
+                DateTime HoraEstePartido = new DateTime(long.Parse(Hora));
+                DateTime HoraOtroPartido = new DateTime(long.Parse(par.Hora));
+
+                if((par.Fecha < _fecha) & (HoraEstePartido < HoraOtroPartido))
+                {
+                    salida = 1;
+                } else if ((par.Fecha > _fecha) & (HoraEstePartido > HoraOtroPartido))
+                {
+                    salida = -1;
+                } else
+                {
+                    salida = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                salida = 0;
+            }
+
+            return salida;
         }
 
         /// <summary>
         /// Destructor
         /// </summary>
-        ~partido()
+        ~Partido()
         {
-
+            this.EquipoLocal = "";
+            this.EquipoVisitante = "";
+            this.Hora = "";
+            this.Sede = "";
+            this.ResultadoLocal = null;
+            this.ResultadoVisitante = null;
+            this.AsistenciaEstadio = null;
         }
 
 
         public string EquipoLocal
         {
-            get { return equipoLocal; }
+            get { return _equipoLocal; }
             set
             {
                 if (value.Length < 0 & value.Length >= 50)
-                    equipoLocal = value;
+                    _equipoLocal = value;
             }
         }
         public string EquipoVisitante
         {
-            get { return equipoVisitante; }
+            get { return _equipoVisitante; }
             set
             {
                 if (value.Length < 0 & value.Length >= 50)
-                    equipoVisitante = value;
+                    _equipoVisitante = value;
             }
         }
         public DateTime Fecha
         {
-            get { return fecha; }
-            set { fecha = value; }
+            get { return _fecha; }
+            set { _fecha = value; }
         }
         public string Hora
         {
-            get { return hora; }
+            get { return _hora; }
             set
             {
                 if (value.Length >= 8)
-                    hora = value;
+                    _hora = value;
             }
         }
         public string Sede
         {
-            get { return sede; }
+            get { return _sede; }
             set
             {
                 if (value.Length >= 100)
-                    sede = value;
+                    _sede = value;
             }
         }
 
         public int? ResultadoLocal
         {
-            get { return resultadoLocal; }
-            set { resultadoLocal = value; }
+            get { return _resultadoLocal; }
+            set { _resultadoLocal = value; }
         }
         public int? ResultadoVisitante
         {
-            get { return resultadoVisitante; }
-            set { resultadoVisitante = value; }
+            get { return _resultadoVisitante; }
+            set { _resultadoVisitante = value; }
         }
         public int? AsistenciaEstadio
         {
-            get { return asistenciaEstadio; }
-            set { asistenciaEstadio = value; }
+            get { return _asistenciaEstadio; }
+            set { _asistenciaEstadio = value; }
         }
 
         public override string ToString()

@@ -9,21 +9,27 @@ namespace Mundial_Futbol
     /// <author>
     /// José González Silva
     /// </author>
-    class jugar
+    class Jugar
     {
-        private string nombreJugador;
-        private string equipoLocal;
-        private string equipoVisitante;
-        private DateTime fechaPartido;
-        private int? minJugar;
-        private string puestoJugador;
-        private int? dorsal;
+        private string _nombreJugador;
+        private string _equipoLocal;
+        private string _equipoVisitante;
+        private DateTime _fechaPartido;
+        private int? _minJugar;
+        private string _puestoJugador;
+        private int? _dorsal;
         /// <summary>
         /// Constructor
         /// </summary>
-        public jugar()
+        public Jugar()
         {
-
+            this.NombreJugador = "";
+            this.EquipoLocal = "";
+            this.EquipoVisitante = "";
+            this.FechaPartido = new DateTime();
+            this.MinJugar = 0;
+            this.PuestoJugador = "";
+            this.Dorsal = 0;
         }
         /// <summary>
         /// Constructor con parámetros
@@ -35,100 +41,105 @@ namespace Mundial_Futbol
         /// <param name="minJugar"></param>
         /// <param name="puestoJugador"></param>
         /// <param name="dorsal"></param>
-        public jugar(string nombreJugador, string equipoLocal, string equipoVisitante, DateTime fechaPartido, int minJugar, string puestoJugador, int dorsal)
+        public Jugar(string nombreJugador, string equipoLocal, string equipoVisitante, DateTime fechaPartido, int minJugar, string puestoJugador, int dorsal)
         {
-            this.nombreJugador = nombreJugador;
-            this.equipoLocal = equipoLocal;
-            this.equipoVisitante = equipoVisitante;
-            this.fechaPartido = fechaPartido;
-            this.minJugar = minJugar;
-            this.puestoJugador = puestoJugador;
-            this.dorsal = dorsal;
+            this.NombreJugador = nombreJugador;
+            this.EquipoLocal = equipoLocal;
+            this.EquipoVisitante = equipoVisitante;
+            this.FechaPartido = fechaPartido;
+            this.MinJugar = minJugar;
+            this.PuestoJugador = puestoJugador;
+            this.Dorsal = dorsal;
         }
         /// <summary>
         /// Constructor de copia
         /// </summary>
         /// <param name="partido"></param>
-        public jugar(jugar partido)
+        public Jugar(Jugar partido)
         {
-            this.nombreJugador = partido.nombreJugador;
-            this.equipoLocal = partido.equipoLocal;
-            this.equipoVisitante = partido.equipoVisitante;
-            this.fechaPartido = partido.fechaPartido;
-            this.minJugar = partido.minJugar;
-            this.puestoJugador = partido.puestoJugador;
-            this.dorsal = partido.dorsal;
+            this.NombreJugador = partido.NombreJugador;
+            this.EquipoLocal = partido.EquipoLocal;
+            this.EquipoVisitante = partido.EquipoVisitante;
+            this.FechaPartido = partido.FechaPartido;
+            this.MinJugar = partido.MinJugar;
+            this.PuestoJugador = partido.PuestoJugador;
+            this.Dorsal = partido.Dorsal;
         }
         /// <summary>
         /// Destructor
         /// </summary>
-        ~jugar()
+        ~Jugar()
         {
-
+            this.NombreJugador = "";
+            this.EquipoLocal = "";
+            this.EquipoVisitante = "";
+            this.MinJugar = null;
+            this.PuestoJugador = "";
+            this.Dorsal = null;
         }
 
 
         public string NombreJugador
         {
-            get { return nombreJugador; }
+            get { return _nombreJugador; }
             set {
                 if (value.Length > 0 & value.Length <= 60)
-                    nombreJugador = value;
+                    _nombreJugador = value;
             }
         }
 
 
         public string EquipoLocal
         {
-            get { return equipoLocal; }
+            get { return _equipoLocal; }
             set {
                 if (value.Length > 0 & value.Length <= 50)
-                    equipoLocal = value;
+                    _equipoLocal = value;
             }
         }
 
         public string EquipoVisitante
         {
-            get { return equipoVisitante; }
+            get { return _equipoVisitante; }
             set
             {
                 if (value.Length > 0 & value.Length <= 50)
-                    equipoVisitante = value;
+                    _equipoVisitante = value;
             }
         }
 
         public DateTime FechaPartido
         {
-            get { return fechaPartido; }
-            set { fechaPartido = value; }
+            get { return _fechaPartido; }
+            set { _fechaPartido = value; }
         }
 
         public int? MinJugar
         {
-            get { return minJugar; }
+            get { return _minJugar; }
             set
             {
                 if (value > 0)
-                    minJugar = value;
+                    _minJugar = value;
             }
         }
 
         public string PuestoJugador
         {
-            get { return puestoJugador; }
+            get { return _puestoJugador; }
             set
             {
                 if (value.Length <= 2)
-                    puestoJugador = value;
+                    _puestoJugador = value;
             }
         }
         public int? Dorsal
         {
-            get { return dorsal; }
+            get { return _dorsal; }
             set
             {
                 if (value > 0)
-                    dorsal = value;
+                    _dorsal = value;
             }
         }
 

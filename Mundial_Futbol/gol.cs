@@ -9,21 +9,26 @@ namespace Mundial_Futbol
     /// <author>
     /// José González Silva
     /// </author>
-    class gol
+    class Gol
     {
         /// <summary>
         /// Atributos
         /// </summary>
-        private int minuto;
-        private string jugadorGol;
-        private string equipoLocalGol;
-        private string equipoVisitanteGol;
-        private DateTime fechaGol;
+        private int _minuto;
+        private string _jugadorGol;
+        private string _equipoLocalGol;
+        private string _equipoVisitanteGol;
+        private DateTime _fechaGol;
         /// <summary>
         /// Constructor
         /// </summary>
-        public gol()
+        public Gol()
         {
+            this.Minuto = 0;
+            this.JugadorGol = "";
+            this.EquipoLocalGol = "";
+            this.EquipoVisitanteGol = "";
+            this.FechaGol = new DateTime();
 
         }
         /// <summary>
@@ -34,81 +39,84 @@ namespace Mundial_Futbol
         /// <param name="equipoLocalGol"></param>
         /// <param name="equipoVisitanteGol"></param>
         /// <param name="fechaGol"></param>
-        public gol(int minuto, string jugadorGol, string equipoLocalGol, string equipoVisitanteGol, DateTime fechaGol)
+        public Gol(int minuto, string jugadorGol, string equipoLocalGol, string equipoVisitanteGol, DateTime fechaGol)
         {
-            this.minuto = minuto;
-            this.jugadorGol = jugadorGol;
-            this.equipoLocalGol = equipoLocalGol;
-            this.equipoVisitanteGol = equipoVisitanteGol;
-            this.fechaGol = fechaGol;
+            this.Minuto = minuto;
+            this.JugadorGol = jugadorGol;
+            this.EquipoLocalGol = equipoLocalGol;
+            this.EquipoVisitanteGol = equipoVisitanteGol;
+            this.FechaGol = fechaGol;
 
         }
         /// <summary>
         /// Constructor de copia
         /// </summary>
         /// <param name="Tanto"></param>
-        public gol(gol Tanto)
+        public Gol(Gol Tanto)
         {
-            this.minuto = Tanto.minuto;
-            this.jugadorGol = Tanto.jugadorGol;
-            this.equipoLocalGol = Tanto.equipoLocalGol;
-            this.equipoVisitanteGol = Tanto.equipoVisitanteGol;
-            this.fechaGol = Tanto.fechaGol;
+            this.Minuto = Tanto.Minuto;
+            this.JugadorGol = Tanto.JugadorGol;
+            this.EquipoLocalGol = Tanto.EquipoLocalGol;
+            this.EquipoVisitanteGol = Tanto.EquipoVisitanteGol;
+            this.FechaGol = Tanto.FechaGol;
         }
         /// <summary>
         /// Destructor
         /// </summary>
-        ~gol()
+        ~Gol()
         {
-
+            this.Minuto = 0;
+            this.JugadorGol = "";
+            this.EquipoLocalGol = "";
+            this.EquipoVisitanteGol = "";
         }
 
         
         public int Minuto {
-            get { return minuto; }
+            get { return _minuto; }
             set
             {
                 if (value > 0)
-                    minuto = value;
+                    _minuto = value;
             }
         }        
 
         public string JugadorGol
         {
-            get { return JugadorGol; }
+            get { return _jugadorGol; }
             set
             {
                 if (value.Length < 0 & value.Length <= 60)
-                    jugadorGol = value;
+                    _jugadorGol = value;
             }
         }
 
         public string EquipoLocalGol
         {
-            get { return equipoLocalGol; }
+            get { return _equipoLocalGol; }
             set
             {
                 if (value.Length < 0 & value.Length <= 50)
-                    equipoLocalGol = value;
+                    _equipoLocalGol = value;
             }
         }
 
         public string EquipoVisitanteGol
         {
-            get { return equipoVisitanteGol; }
+            get { return _equipoVisitanteGol; }
             set
             {
                 if (value.Length < 0 & value.Length <= 50)
-                    equipoVisitanteGol = value;
+                    _equipoVisitanteGol = value;
             }
         }
 
         public DateTime FechaGol
         {
-            get { return fechaGol; }
+            get { return _fechaGol; }
             set
             {
-                fechaGol = value;
+                _fechaGol = value;
             }
         }
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Mundial_Futbol
 {
-    class mundial
+    class Mundial
     {
-        private List<partido> partidos;
+        private List<Partido> partidos;
         private int anyo;
 
-        public mundial()
+        public Mundial()
         {
 
         }

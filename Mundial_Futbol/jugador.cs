@@ -9,95 +9,102 @@ namespace Mundial_Futbol
     /// <author>
     /// José González Silva
     /// </author>
-    class jugador
+    class Jugador
     {
         /// <summary>
         /// Atributos de Jugador
         /// </summary>
-        private string nombre;
-        private string direccion;
-        private string puesto;
-        private string equipo;
-        private DateTime fechaNacimiento;
+        private string _nombre;
+        private string _direccion;
+        private string _puesto;
+        private string _equipo;
+        private DateTime _fechaNacimiento;
         /// <summary>
         /// Constructor
         /// </summary>
-        public jugador()
+        public Jugador()
         {
-
+            this.Nombre = "";
+            this.Direccion = "";
+            this.Puesto = "";
+            this.Equipo = "";
+            this.FechaNacimiento = new DateTime();
         }
         /// <summary>
         /// Constructor con parámetros
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="direccion"></param>
-        /// <param name="puesto"></param>
-        /// <param name="fechaNacimiento"></param>
-        /// <param name="equipo"></param>
-        public jugador(string nombre, string direccion, string puesto, DateTime fechaNacimiento, string equipo)
+        /// <param name="_nombre"></param>
+        /// <param name="_direccion"></param>
+        /// <param name="_puesto"></param>
+        /// <param name="_fechaNacimiento"></param>
+        /// <param name="_equipo"></param>
+        public Jugador(string _nombre, string _direccion, string _puesto, DateTime _fechaNacimiento, string _equipo)
         {
-            this.nombre = nombre;
-            this.direccion = direccion;
-            this.puesto = puesto;
-            this.FechaNacimiento = fechaNacimiento;
-            this.equipo = equipo;
+            this.Nombre = _nombre;
+            this.Direccion = _direccion;
+            this.Puesto = _puesto;
+            this.FechaNacimiento = _fechaNacimiento;
+            this.Equipo = _equipo;
         }
         /// <summary>
         /// Constructor de copia
         /// </summary>
         /// <param name="deportista"></param>
-        public jugador(jugador deportista)
+        public Jugador(Jugador deportista)
         {
-            this.nombre = deportista.nombre;
-            this.direccion = deportista.direccion;
-            this.puesto = deportista.puesto;
+            this.Nombre = deportista.Nombre;
+            this.Direccion = deportista.Direccion;
+            this.Puesto = deportista.Puesto;
             this.FechaNacimiento = deportista.FechaNacimiento;
-            this.equipo = deportista.equipo;
+            this.Equipo = deportista.Equipo;
         }
         /// <summary>
         /// Destructor
         /// </summary>
-        ~jugador()
+        ~Jugador()
         {
-
+            this.Nombre = "";
+            this.Direccion = "";
+            this.Puesto = "";
+            this.Equipo = "";
         }
 
         public string Nombre
         {
-            get { return nombre; }
+            get { return _nombre; }
             set {
                 if(value.Length > 0 & value.Length <= 60)
-                    nombre = value;
+                    _nombre = value;
             }
         }
 
         public string Direccion
         {
-            get { return direccion; }
+            get { return _direccion; }
             set
             {
                 if (value.Length <= 150)
-                    direccion = value;
+                    _direccion = value;
             }
         }
 
         public string Puesto
         {
-            get { return puesto; }
+            get { return _puesto; }
             set
             {
                 if (value.Length <= 2)
-                    puesto = value;
+                    _puesto = value;
             }
         }
 
         public string Equipo
         {
-            get { return equipo; }
+            get { return _equipo; }
             set
             {
                 if (value.Length > 0 & value.Length <= 50)
-                    equipo = value;
+                    _equipo = value;
             }
         }
 

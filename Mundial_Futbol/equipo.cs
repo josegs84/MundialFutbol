@@ -9,20 +9,22 @@ namespace Mundial_Futbol
     /// <author>
     /// José González Silva
     /// </author>
-    class equipo
+    class Equipo
     {
         /// <summary>
         /// Atributos
         /// </summary>
-        private string nombreEquipo { get; set; }
-        private string pais { get; set; }
-        private string seleccionador { get; set; }
+        private string _nombreEquipo;
+        private string _pais;
+        private string _seleccionador;
         /// <summary>
         /// Constructor
         /// </summary>
-        public equipo()
+        public Equipo()
         {
-
+            this.NombreEquipo = "";
+            this.Pais = "";
+            this.Seleccionador = "";
         }
         /// <summary>
         /// Constructor con parámetros
@@ -30,58 +32,60 @@ namespace Mundial_Futbol
         /// <param name="nombreEquipo"></param>
         /// <param name="pais"></param>
         /// <param name="seleccionador"></param>
-        public equipo(string nombreEquipo, string pais, string seleccionador)
+        public Equipo(string nombreEquipo, string pais, string seleccionador)
         {
-            this.nombreEquipo = nombreEquipo;
-            this.pais = pais;
-            this.seleccionador = seleccionador;
+            this.NombreEquipo = nombreEquipo;
+            this.Pais = pais;
+            this.Seleccionador = seleccionador;
         }
         /// <summary>
         /// Constructor de copia
         /// </summary>
         /// <param name="seleccion"></param>
-        public equipo(equipo seleccion)
+        public Equipo(Equipo seleccion)
         {
-            this.nombreEquipo = seleccion.nombreEquipo;
-            this.pais = seleccion.pais;
-            this.seleccionador = seleccion.seleccionador;
+            this.NombreEquipo = seleccion.NombreEquipo;
+            this.Pais = seleccion.Pais;
+            this.Seleccionador = seleccion.Seleccionador;
         }
         /// <summary>
         /// Destructor
         /// </summary>
-        ~equipo()
+        ~Equipo()
         {
-
+            this.NombreEquipo = "";
+            this.Pais = "";
+            this.Seleccionador = "";
         }
 
 
         public string NombreEquipo
         {
-            get { return nombreEquipo; }
+            get { return _nombreEquipo; }
             set
             {
                 if (value.Length > 0 & value.Length <= 50)
-                    nombreEquipo = value;
+                    _nombreEquipo = value;
             }
         }
 
         public string Pais
         {
-            get { return pais; }
+            get { return _pais; }
             set
             {
                 if (value.Length <= 30)
-                    pais = value;
+                    _pais = value;
             }
         }
 
         public string Seleccionador
         {
-            get { return seleccionador; }
+            get { return _seleccionador; }
             set
             {
                 if (value.Length <= 50)
-                    seleccionador = value;
+                    _seleccionador = value;
             }
         }
 
