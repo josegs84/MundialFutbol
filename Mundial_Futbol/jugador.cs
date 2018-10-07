@@ -38,7 +38,7 @@ namespace Mundial_Futbol
         /// <param name="_puesto"></param>
         /// <param name="_fechaNacimiento"></param>
         /// <param name="_equipo"></param>
-        public Jugador(string _nombre, string _direccion, string _puesto, DateTime _fechaNacimiento, string _equipo)
+        public Jugador(string _nombre, string _equipo, string _direccion, string _puesto, DateTime _fechaNacimiento)
         {
             this.Nombre = _nombre;
             this.Direccion = _direccion;

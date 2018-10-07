@@ -81,13 +81,10 @@ namespace Mundial_Futbol
             {
                 Partido par = (Partido)obj;
 
-                DateTime HoraEstePartido = new DateTime(long.Parse(Hora));
-                DateTime HoraOtroPartido = new DateTime(long.Parse(par.Hora));
-
-                if((par.Fecha < _fecha) & (HoraEstePartido < HoraOtroPartido))
+                if((par.FechaPartido < FechaPartido))
                 {
                     salida = 1;
-                } else if ((par.Fecha > _fecha) & (HoraEstePartido > HoraOtroPartido))
+                } else if ((par.FechaPartido > FechaPartido))
                 {
                     salida = -1;
                 } else
@@ -174,6 +171,11 @@ namespace Mundial_Futbol
         {
             get { return _asistenciaEstadio; }
             set { _asistenciaEstadio = value; }
+        }
+
+        public DateTime FechaPartido
+        {
+            get { return new DateTime(Fecha.Year, Fecha.Month, Fecha.Day, int.Parse(Hora.Substring(0,2)), int.Parse(Hora.Substring(3,2)), 0);  }
         }
 
         public override string ToString()
