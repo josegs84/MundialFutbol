@@ -86,7 +86,7 @@ namespace Mundial_Futbol
             get { return _jugadorGol; }
             set
             {
-                if (value.Length < 0 & value.Length <= 60)
+                if (value.Length > 0 & value.Length <= 60)
                     _jugadorGol = value;
             }
         }
@@ -96,7 +96,7 @@ namespace Mundial_Futbol
             get { return _equipoLocalGol; }
             set
             {
-                if (value.Length < 0 & value.Length <= 50)
+                if (value.Length > 0 & value.Length <= 50)
                     _equipoLocalGol = value;
             }
         }
@@ -106,7 +106,7 @@ namespace Mundial_Futbol
             get { return _equipoVisitanteGol; }
             set
             {
-                if (value.Length < 0 & value.Length <= 50)
+                if (value.Length > 0 & value.Length <= 50)
                     _equipoVisitanteGol = value;
             }
         }

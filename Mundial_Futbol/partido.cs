@@ -120,7 +120,9 @@ namespace Mundial_Futbol
             get { return _equipoLocal; }
             set
             {
-                if (value.Length < 0 & value.Length >= 50)
+                if (value.Length > 0 & value.Length <= 50)
+                    _equipoLocal = value;
+                else
                     _equipoLocal = value;
             }
         }
@@ -129,7 +131,7 @@ namespace Mundial_Futbol
             get { return _equipoVisitante; }
             set
             {
-                if (value.Length < 0 & value.Length >= 50)
+                if (value.Length > 0 & value.Length <= 50)
                     _equipoVisitante = value;
             }
         }
@@ -143,7 +145,7 @@ namespace Mundial_Futbol
             get { return _hora; }
             set
             {
-                if (value.Length >= 8)
+                if (value.Length <= 8)
                     _hora = value;
             }
         }
@@ -152,7 +154,7 @@ namespace Mundial_Futbol
             get { return _sede; }
             set
             {
-                if (value.Length >= 100)
+                if (value.Length <= 100)
                     _sede = value;
             }
         }

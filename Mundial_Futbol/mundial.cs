@@ -10,14 +10,16 @@ namespace Mundial_Futbol
     class Mundial
     {
         private int _anyo;
-        private List<Partido> _partidos;
-        private List<Equipo> _equipos;
-        private List<Gol> _goles;
-        private List<Jugador> _jugadores;
-        private List<Jugar> _juegos;
+
         public Mundial()
         {
             Anyo = new DateTime().Year;
+            Partidos = new List<Partido>();
+            Jugadores = new List<Jugador>();
+            Juegos = new List<Jugar>();
+            Goles = new List<Gol>();
+            Equipos = new List<Equipo>();
+            BaseDeDatos();
         }
 
         public void BaseDeDatos()
@@ -34,7 +36,7 @@ namespace Mundial_Futbol
             Partidos.Add(new Partido("Francia", "Francia", new DateTime(2018, 06, 13), "20:30:00", "Warsawa Arena", 0, 0, 10000));
             Partidos.Add(new Partido("Mexico", "Alemania", new DateTime(2018, 06, 12), "20:30:00", "Stade aux Princes", 0, 0, 25000));
             Partidos.Add(new Partido("España", "EEUU", new DateTime(1994, 06, 4), "16:30:00", "Liberty Park", 0, 0, 36500));
-            Partidos.Add(new Partido("Francia", "España", new DateTime(2018, 06, 31), "19:30:00", "Ciudade da Luz", 0, 0, 10000));
+            Partidos.Add(new Partido("Francia", "España", new DateTime(2018, 06, 30), "19:30:00", "Ciudade da Luz", 0, 0, 10000));
             Partidos.Add(new Partido("Alemania", "Mexico", new DateTime(2002, 06, 7), "20:30:00", "Liberty Park", 0, 0, 25525));
             Partidos.Add(new Partido("EEUU", "Alemania", new DateTime(1998, 06, 1), "12:30:00", "Dombass Arena", 0, 0, 12500));
             Partidos.Add(new Partido("Mexico", "Italia", new DateTime(2018, 06, 30), "12:30:00", "Warsawa Arena", 0, 0, 17500));
@@ -49,7 +51,7 @@ namespace Mundial_Futbol
             Partidos.Add(new Partido("Inglaterra", "España", new DateTime(2018, 06, 15), "11:30:00", "Camp Nou", 0, 0, 25000));
             Partidos.Add(new Partido("Mexico", "EEUU", new DateTime(2018, 06, 8), "10:30:00", "Wembley Stadium", 0, 0, 25000));
             Partidos.Add(new Partido("España", "EEUU", new DateTime(1994, 06, 10), "15:30:00", "Wembley Stadium", 0, 0, 25525));
-            Partidos.Add(new Partido("EEUU", "Francia", new DateTime(2010, 06, 31), "11:30:00", "Wembley Stadium", 0, 0, 25000));
+            Partidos.Add(new Partido("EEUU", "Francia", new DateTime(2010, 06, 30), "11:30:00", "Wembley Stadium", 0, 0, 25000));
             Partidos.Add(new Partido("Brasil", "Mexico", new DateTime(1984, 06, 8), "10:30:00", "Stade aux Princes", 0, 0, 25525));
             Partidos.Add(new Partido("Italia", "Alemania", new DateTime(2010, 06, 22), "17:30:00", "Rico Perez", 0, 0, 36500));
             Partidos.Add(new Partido("Mexico", "Italia", new DateTime(2018, 06, 1), "17:30:00", "Ciudade da Luz", 0, 0, 40000));
@@ -175,27 +177,12 @@ namespace Mundial_Futbol
             return TodosPartidos;
         }
 
-        public List<Partido> Partidos {
-            get { return _partidos; }
-            set { _partidos = value; }
-        }
-        public List<Equipo> Equipos {
-            get { return _equipos; }
-            set { _equipos = value; }
-        }
-        public List<Gol> Goles {
-            get { return _goles; }
-            set { _goles = value; }
-        }
-        public List<Jugador> Jugadores {
-            get { return _jugadores; }
-            set { _jugadores = value; }
-        }
-        public List<Jugar> Juegos {
-            get { return _juegos; }
-            set { _juegos = value; }
-        }
- 
+        public List<Partido> Partidos { get; set; }
+        public List<Equipo> Equipos { get; set; }
+        public List<Gol> Goles { get; set; }
+        public List<Jugador> Jugadores { get; set; }
+        public List<Jugar> Juegos { get; set; }
+
         public int Anyo {
             get { return _anyo; }
             set { _anyo = value; }
