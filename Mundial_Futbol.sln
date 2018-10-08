@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mundial_Futbol", "Mundial_Futbol\Mundial_Futbol.csproj", "{5A496C00-7052-4D30-BA6D-EE5C3A3B1C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormulariosMundial", "FormulariosMundial\FormulariosMundial.csproj", "{31C0A741-63A9-4004-B12C-5EF8312287D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaPresentacion", "FormulariosMundial\CapaPresentacion.csproj", "{31C0A741-63A9-4004-B12C-5EF8312287D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{F05193EA-0424-489A-91F7-4742C3B1B7F4}"
 EndProject
