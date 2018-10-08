@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mundial_Futbol
 {
+    /// <author>
+    /// José González Silva
+    /// </author>
     class Program
     {
         static void Main(string[] args)

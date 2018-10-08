@@ -7,6 +7,9 @@ using System.Xml.Schema;
 
 namespace Mundial_Futbol
 {
+    /// <author>
+    /// José González Silva
+    /// </author>
     class Mundial
     {
         private int _anyo;
