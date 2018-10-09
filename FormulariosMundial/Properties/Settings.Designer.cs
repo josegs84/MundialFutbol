@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FormulariosMundial.Properties {
+namespace CapaPresentacion.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

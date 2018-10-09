@@ -1,4 +1,4 @@
-﻿namespace FormulariosMundial
+﻿namespace CapaPresentacion
 {
     partial class Form1
     {
