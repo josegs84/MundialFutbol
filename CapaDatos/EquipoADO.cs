@@ -31,7 +31,7 @@ namespace CapaDatos
 
             try
             {
-                lector = bbdd.EjecutarDML(query);
+                lector = bbdd.HazSelect(query);
                 while (lector.Read())
                 {
                     Id = lector.GetInt32(0);
@@ -61,7 +61,7 @@ namespace CapaDatos
             // Abrimos la conexión
             bbdd.AbrirConexion();
             // Almacenamos los datos de la consulta en el DataReader
-            salida = bbdd.EjecutarDML(query);
+            salida = bbdd.HazSelect(query);
             // Antes de finalizar, cerramos la conexión
             bbdd.CerrarConexion();
             // Se devuelve el DataReader con los datos

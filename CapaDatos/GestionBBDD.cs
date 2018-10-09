@@ -9,61 +9,61 @@ namespace CapaDatos
 {
     class GestionBBDD
     {
-        private OracleConnection conexionBBDD;
-        private OracleCommand orden;
-        private OracleDataReader lector;
-        static string cadenaConexion;
+        private OracleConnection _conexionBBDD;
+        private OracleCommand _orden;
+        private OracleDataReader _lector;
+        static string _cadenaConexion;
         /// <summary>
         /// Constructor
         /// </summary>
         public GestionBBDD()
         {
-            cadenaConexion = "User ID=MUNDIAL; Password=1234; " +
+            _cadenaConexion = "User ID=MUNDIAL; Password=1234; " +
                             "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521)) " +
                             "(CONNECT_DATA = (SERVICE_NAME = xe)))";
-            conexionBBDD = null;
-            orden = null;
-            lector = null;
+            _conexionBBDD = null;
+            _orden = null;
+            _lector = null;
         }
         /// <summary>
         /// Abrir la conexión de base de datos
         /// </summary>
         public void AbrirConexion()
         {
-            conexionBBDD = new OracleConnection(cadenaConexion);
-            conexionBBDD.Open();
+            _conexionBBDD = new OracleConnection(_cadenaConexion);
+            _conexionBBDD.Open();
         }
         /// <summary>
         /// Cerrar la conexión de base de datos (cuando ya no sea necesaria)
         /// </summary>
         public void CerrarConexion()
         {
-            if (lector != null)
-                lector.Close();
-            if (conexionBBDD != null)
-                conexionBBDD.Close();
+            if (_lector != null)
+                _lector.Close();
+            if (_conexionBBDD != null)
+                _conexionBBDD.Close();
         }
         /// <summary>
         /// Ejecuta una query para mostrar datos
         /// </summary>
         /// <param name="query">Instrucción SQL</param>
         /// <returns>Devuelve un objeto con datos</returns>
-        public OracleDataReader EjecutarDML(string query)
+        public OracleDataReader HazSelect(string query)
         {
-            orden = new OracleCommand(query, conexionBBDD);
-            lector = orden.ExecuteReader();
-            return lector;
+            _orden = new OracleCommand(query, _conexionBBDD);
+            _lector = _orden.ExecuteReader();
+            return _lector;
         }
         /// <summary>
         /// Ejecuta una query para insertar, actualizar o eliminar datos
         /// </summary>
         /// <param name="query">Instrucción SQL</param>
-        /// <returns>Devuelve el nº de filas afectadas</returns>
-        public int EjecutarDDL(string query)
+        /// <returns>Devuelve el nº de filas afectadas. En el caso del Insert, devuelve el id insertado</returns>
+        public int HazActualizacion(string query)
         {
             int afectadas = 0;
-            orden = new OracleCommand(query, conexionBBDD);
-            afectadas = orden.ExecuteNonQuery();
+            _orden = new OracleCommand(query, _conexionBBDD);
+            afectadas = _orden.ExecuteNonQuery();
             return afectadas;
         }
     }
