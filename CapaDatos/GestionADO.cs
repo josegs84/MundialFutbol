@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using Oracle.ManagedDataAccess.Client;
 
 namespace CapaDatos
 {
-    class EquipoADO
+    class GestionADO
     {
         private GestionBBDD bbdd;
 
-        public EquipoADO()
+        public GestionADO()
         {
             bbdd = new GestionBBDD();
         }
@@ -36,7 +36,8 @@ namespace CapaDatos
                 {
                     Id = lector.GetInt32(0);
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Id = 0;
                 Debug.WriteLine("Error en la inserción: " + ex.Message);

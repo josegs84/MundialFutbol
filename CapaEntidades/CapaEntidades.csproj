@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F05193EA-0424-489A-91F7-4742C3B1B7F4}</ProjectGuid>
+    <ProjectGuid>{BB46E4B5-9A32-4F47-94BB-670B700C5ADF}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CapaDatos</RootNamespace>
-    <AssemblyName>CapaDatos</AssemblyName>
+    <RootNamespace>CapaEntidades</RootNamespace>
+    <AssemblyName>CapaEntidades</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -35,7 +35,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestionADO.cs" />
-    <Compile Include="GestionBBDD.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="equipo.cs" />
+    <Compile Include="gol.cs" />
+    <Compile Include="jugador.cs" />
+    <Compile Include="jugar.cs" />
+    <Compile Include="partido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

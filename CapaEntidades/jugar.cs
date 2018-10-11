@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CapaNegocio
+namespace CapaEntidades
 {
     /// <author>
     /// José González Silva
     /// </author>
-    class Jugar
+    public class Jugar
     {
         private string _nombreJugador;
         private string _equipoLocal;
