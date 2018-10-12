@@ -76,6 +76,12 @@ namespace CapaNegocio
             return TodosPartidos;
         }
 
+        public int AnadirEquipo(Equipo E)
+        {
+
+            return CapaDatos.EquipoADO
+        }
+
         public List<Partido> Partidos { get; set; }
         public List<Equipo> Equipos { get; set; }
         public List<Gol> Goles { get; set; }

@@ -39,9 +39,16 @@ namespace CapaDatos
         public void CerrarConexion()
         {
             if (_lector != null)
+            {
                 _lector.Close();
+                _lector.Dispose();
+            }
+                
             if (_conexionBBDD != null)
+            {
                 _conexionBBDD.Close();
+            }
+                
         }
         /// <summary>
         /// Ejecuta una query para mostrar datos
